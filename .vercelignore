@@ -1,0 +1,10 @@
+.git
+work/dataset
+work/video_assets
+work/runtime
+work/cache
+outputs/*.mp4
+outputs/*.zip
+outputs/demo-video
+__pycache__
+*.pyc

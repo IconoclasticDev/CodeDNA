@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CodeDNA competition readiness, evaluation evidence and analysis methodology." />
+  <title>Evidence and method — CodeDNA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CodeDNA home"><span class="brand-mark">C<span>D</span></span><span>CodeDNA</span></a>
+    <div class="topbar-right"><nav class="topnav" aria-label="Primary navigation"><a href="/">Home</a><a href="/analyze.html">Analyze</a><a href="/evidence.html" aria-current="page">Evidence</a></nav><div class="status"><span class="status-dot"></span><span id="system-status">Checking system</span></div></div>
+  </header>
+  <main>
+    <section class="page-intro"><span class="eyebrow">EVIDENCE &amp; METHODOLOGY</span><h1>Show the work<br /><em>behind the score.</em></h1><p>Every readiness claim is tied to a checked implementation, source manifest, held-out evaluation artifact or trained model.</p></section>
+    <section class="readiness" aria-labelledby="readiness-title">
+      <div class="readiness-heading"><div><span class="kicker">COMPETITION READINESS</span><h2 id="readiness-title">Claims backed by visible gates.</h2></div><div class="readiness-badge pending" id="readiness-badge">Checking evidence</div></div>
+      <p id="readiness-copy">Checking the demo, documentation, dataset and evaluation artifacts.</p>
+      <div class="readiness-grid" id="readiness-grid" aria-live="polite"></div>
+      <div class="evidence-metrics" id="evidence-metrics" hidden></div>
+      <div class="readiness-next" id="readiness-next"></div>
+    </section>
+    <section class="method">
+      <span class="kicker">METHOD, NOT MAGIC</span><h2>One score. Four independent views of code.</h2>
+      <div class="method-grid">
+        <article><span>01</span><h3>Lexical habits</h3><p>Naming, comments, annotations, spacing and function-shape patterns.</p></article>
+        <article><span>02</span><h3>AST structure</h3><p>Control flow, calls, comprehensions, depth and nesting behaviour.</p></article>
+        <article><span>03</span><h3>Complexity</h3><p>Cyclomatic complexity, logical size and distribution across functions.</p></article>
+        <article><span>04</span><h3>Code representation</h3><p>A privacy-preserving local vector of AST paths and syntax relationships.</p></article>
+      </div>
+      <div class="limitations-card"><span class="kicker">INTERPRETATION BOUNDARY</span><h3>Deviation is a reason to review, not proof of misconduct.</h3><p>Learning, collaboration, frameworks and task changes can all alter coding behaviour. The public benchmark is prototype-scale. The calibrated false-positive rate is shown above; the stricter operating point sends ambiguous cases to Uncertain and therefore reduces automatic coverage.</p></div>
+    </section>
+  </main>
+  <footer><span>CodeDNA prototype · review support only</span><span><a href="/">Home</a> · <a href="/analyze.html">Analyze</a></span></footer>
+  <script src="/site.js" type="module"></script>
+  <script src="/evidence.js" type="module"></script>
+</body>
+</html>

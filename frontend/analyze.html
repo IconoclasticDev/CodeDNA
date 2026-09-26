@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CodeDNA developer behavioural authentication prototype" />
+    <title>Analyze code — CodeDNA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="CodeDNA home">
+        <span class="brand-mark">C<span>D</span></span>
+        <span>CodeDNA</span>
+      </a>
+      <div class="topbar-right"><nav class="topnav" aria-label="Primary navigation"><a href="/">Home</a><a href="/analyze.html" aria-current="page">Analyze</a><a href="/evidence.html">Evidence</a></nav><div class="status"><span class="status-dot"></span><span id="system-status">Checking system</span></div></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">BEHAVIOURAL CODE AUTHENTICATION</div>
+        <h1>Does this code still<br /><em>behave like you?</em></h1>
+        <p>Build a developer fingerprint from historical Python files, then inspect a new submission through lexical habits, program structure, complexity and a local code representation.</p>
+        <div class="hero-actions">
+          <button class="primary" id="demo-review">Run anomaly demo <span>→</span></button>
+          <button class="secondary" id="demo-consistent">Run familiar-style demo</button>
+          <button class="secondary" id="demo-mixed">Run multi-file demo</button>
+        </div>
+        <div class="trust-note"><span>01</span> Evidence for human review <span>02</span> No code execution <span>03</span> Python prototype</div>
+      </section>
+
+      <section class="workspace" aria-label="CodeDNA workspace">
+        <nav class="steps" aria-label="Workflow steps">
+          <button class="step active" data-step="profile"><span>1</span> Build profile</button>
+          <div class="step-line"></div>
+          <button class="step" data-step="fingerprint"><span>2</span> Fingerprint</button>
+          <div class="step-line"></div>
+          <button class="step" data-step="report"><span>3</span> Review report</button>
+        </nav>
+
+        <div class="panel active" id="profile-panel">
+          <div class="panel-heading">
+            <div><span class="kicker">ENROLLMENT</span><h2>Create a developer profile</h2></div>
+            <span class="support-badge">.PY SUPPORTED</span>
+          </div>
+          <p class="panel-copy">Select at least ten distinct historical Python files to build a reviewable baseline.</p>
+          <label class="field-label" for="developer-name">Developer name</label>
+          <input class="text-input" id="developer-name" value="My Code DNA" autocomplete="off" />
+          <label class="field-label" for="repository-url-1">Public GitHub repositories <span class="optional">optional · up to four</span></label>
+          <div id="repository-list" class="repository-list">
+            <div class="repository-row">
+              <input class="text-input repository-url" id="repository-url-1" placeholder="https://github.com/owner/repository" autocomplete="off" />
+              <button class="remove-repository" type="button" aria-label="Remove repository">×</button>
+            </div>
+          </div>
+          <button class="add-repository" id="add-repository" type="button">+ Add another repository</button>
+          <label class="dropzone" id="history-dropzone" for="history-files">
+            <input id="history-files" type="file" accept=".py,.zip,text/x-python,application/zip" multiple hidden />
+            <span class="upload-icon">↥</span>
+            <strong>Choose Python files or one ZIP</strong>
+            <small>or drag and drop them here · up to 100 Python files</small>
+          </label>
+          <div class="file-summary" id="history-summary">No files selected</div>
+          <div class="inline-error" id="profile-error" role="alert"></div>
+          <button class="primary wide" id="build-profile" disabled>Build behavioural profile <span>→</span></button>
+          <div class="processing-status" id="profile-processing" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="panel" id="fingerprint-panel">
+          <div class="panel-heading">
+            <div><span class="kicker">BASELINE READY</span><h2 id="profile-title">Developer's Code DNA</h2></div>
+            <div class="confidence" id="confidence-badge">MODERATE CONFIDENCE</div>
+          </div>
+          <div class="stats-grid" id="profile-stats"></div>
+          <div class="fingerprint-card">
+            <div><span class="kicker">PROFILE STABILITY</span><h3>Behavioural signal map</h3></div>
+            <div id="stability-bars"></div>
+          </div>
+          <div class="warning" id="profile-warning"></div>
+          <div class="demo-transition" id="demo-transition" role="status" aria-live="polite"></div>
+          <p class="panel-copy next-step-copy"><strong>Fingerprint complete.</strong> Add the new submission below, then select <em>Analyze consistency</em> to generate the review report.</p>
+          <label class="dropzone compact" id="submission-dropzone" for="submission-files">
+            <input id="submission-files" type="file" accept=".py,.zip,text/x-python,application/zip" multiple hidden />
+            <span class="upload-icon">+</span>
+            <strong>Select new submission</strong>
+            <small>One or more Python files</small>
+          </label>
+          <div class="file-summary" id="submission-summary">No submission selected</div>
+          <div class="inline-error" id="submission-error" role="alert"></div>
+          <button class="primary wide" id="analyze-submission" disabled>Analyze consistency <span>→</span></button>
+          <div class="processing-status" id="submission-processing" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="panel" id="report-panel">
+          <div class="report-hero">
+            <div>
+              <span class="kicker">AUTHORSHIP CONSISTENCY</span>
+              <div class="score"><strong id="score-value">—</strong><span>/ 100</span></div>
+              <div class="verdict" id="verdict">Waiting for analysis</div>
+              <div class="model-meta" id="model-meta"></div>
+            </div>
+            <div class="score-ring" id="score-ring"><span id="ring-score">—</span></div>
+          </div>
+          <div class="component-grid" id="components"></div>
+          <div class="gap-card" id="gap-card">
+            <span class="kicker">SURFACE / STRUCTURE GAP</span>
+            <strong id="gap-value">—</strong>
+            <p id="gap-copy"></p>
+          </div>
+          <div class="file-map-section" id="file-map-section" hidden>
+            <div class="section-heading"><span class="kicker">FILE-LEVEL REVIEW MAP</span><h3>Where the deviation concentrates</h3></div>
+            <p class="section-copy" id="file-map-copy"></p>
+            <div class="file-map" id="file-map"></div>
+          </div>
+          <div class="function-map-section" id="function-map-section" hidden>
+            <div class="section-heading"><span class="kicker">FUNCTION-LEVEL HEAT MAP</span><h3>Which functions deserve attention first</h3></div>
+            <p class="section-copy" id="function-map-copy"></p>
+            <div class="function-map" id="function-map"></div>
+          </div>
+          <div class="deviation-section">
+            <div class="section-heading"><span class="kicker">EXPLAINABLE EVIDENCE</span><h3>Largest deviations</h3></div>
+            <div id="deviations"></div>
+          </div>
+          <div class="coverage-card" id="coverage-card"></div>
+          <div class="report-warnings" id="report-warnings"></div>
+          <div class="notice" id="notice"></div>
+          <div class="report-actions">
+            <button class="primary" id="download-html">Download review report <span>↓</span></button>
+            <button class="secondary" id="download-report">Download evidence JSON</button>
+            <button class="secondary" id="new-analysis">Analyze another submission</button>
+            <button class="ghost" id="restart">Start over</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>CodeDNA prototype · review support only</span><span><a href="/">Home</a> · <a href="/evidence.html">Evidence</a></span></footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
+
+
+
+
+

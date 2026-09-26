@@ -1,0 +1,8 @@
+author_id,repository,commit_sha,license_or_permission,eligible_files,excluded_files,collection_notes
+jamesmurphy_mc,https://github.com/mCodingLLC/mCodingYouTube,3ecbe0e7e13c79d51cbd81938c60e2a204306616,MIT license,13,4,Repository-owner proxy; mCoding project; public benchmark only
+jamesmurphy_mc,https://github.com/mCodingLLC/SlapThatLikeButton-TestingStarterProject,4273bccbb20fa58b32e5c5ef031a3490d6c7a402,MIT license,6,10,Repository-owner proxy; mCoding project; public benchmark only
+jamesmurphy_mc,https://github.com/mCodingLLC/prime_sieve,014d5d400a1269369387595dc2fc01ad49d1abfb,MIT license,9,26,Repository-owner proxy; mCoding project; public benchmark only
+rsalmei,https://github.com/rsalmei/about-time,24389d0307db0c5a873397d5ff4269bc13d135fe,MIT license,12,10,Repository-owner proxy; rsalmei project; public benchmark only
+rsalmei,https://github.com/rsalmei/zsh-history-to-fish,c29f872f148d98f55e4e4768e7cda128081ee396,MIT license,3,4,Repository-owner proxy; rsalmei project; public benchmark only
+jsvine,https://github.com/jsvine/waybackpack,c5507a08e47fa918030923792f4858f31c993328,MIT license,15,5,Repository-owner proxy; top contributor jsvine at collection time; public benchmark only
+delgan,https://github.com/Delgan/loguru,48acf77ac2b3296acc67069511b99cc3ca3d0c41,MIT license,100,139,Repository-owner proxy; top contributor Delgan at collection time; public benchmark only

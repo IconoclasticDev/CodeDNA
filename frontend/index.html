@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CodeDNA explains whether submitted Python code is consistent with a developer's historical coding behaviour." />
+  <title>CodeDNA — Authorship consistency, explained</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="CodeDNA home"><span class="brand-mark">C<span>D</span></span><span>CodeDNA</span></a>
+    <div class="topbar-right"><nav class="topnav" aria-label="Primary navigation"><a href="/" aria-current="page">Home</a><a href="/analyze.html">Analyze</a><a href="/evidence.html">Evidence</a></nav><div class="status"><span class="status-dot"></span><span id="system-status">Checking system</span></div></div>
+  </header>
+  <main>
+    <section class="hero landing-hero">
+      <div class="eyebrow">BEHAVIOURAL CODE AUTHENTICATION</div>
+      <h1>Review code through<br /><em>its author's history.</em></h1>
+      <p>CodeDNA builds a behavioural fingerprint from public GitHub repositories or uploaded Python files, then explains how a new submission agrees—or disagrees—with that history.</p>
+      <div class="hero-actions"><a class="primary action-link" href="/analyze.html">Start an analysis <span>→</span></a><a class="secondary action-link" href="/evidence.html">View evidence</a></div>
+      <div class="trust-note"><span>01</span> Public GitHub links <span>02</span> No code execution <span>03</span> Human review required</div>
+    </section>
+    <section class="landing-flow" aria-labelledby="flow-title">
+      <span class="kicker">THREE-STEP WORKFLOW</span><h2 id="flow-title">A focused path from history to evidence.</h2>
+      <div class="landing-card-grid">
+        <article><span>01</span><h3>Build the fingerprint</h3><p>Paste up to four public GitHub links or upload historical Python files. CodeDNA pins repositories to commits and extracts stable habits.</p></article>
+        <article><span>02</span><h3>Compare a submission</h3><p>Analyze lexical style, AST structure, complexity and a local code representation without executing submitted code.</p></article>
+        <article><span>03</span><h3>Review the evidence</h3><p>Inspect the score, uncertainty, Surface–Structure Gap, file-level map and ranked deviations before making a human judgment.</p></article>
+      </div>
+    </section>
+    <section class="landing-cta"><div><span class="kicker">READY TO TRY IT?</span><h2>Paste a repository link. No ZIP required.</h2></div><a class="primary action-link" href="/analyze.html">Open analyzer <span>→</span></a></section>
+  </main>
+  <footer><span>CodeDNA prototype · review support only</span><span><a href="/analyze.html">Analyze</a> · <a href="/evidence.html">Evidence</a></span></footer>
+  <script src="/site.js" type="module"></script>
+</body>
+</html>

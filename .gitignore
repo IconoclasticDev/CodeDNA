@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.vercel/
+*.log
+
+# Runtime, datasets, downloaded models, and generated media
+work/*
+!work/evaluation/
+work/evaluation/*
+!work/evaluation/results.json
+!work/evaluation/resolved_sources.csv
+!work/evaluation/EVIDENCE.md
+outputs/*.mp4
+outputs/*.zip
+outputs/demo-video/
+.vercel
